@@ -76,8 +76,8 @@ describe ('Auctions',() => {
             from:accounts[0],
             gas:'3000000'
         });
-        const status1 = await auction.methods.suspensionStatus().call();
-        assert.equal(status1,true);
+        const status = await auction.methods.suspensionStatus().call();
+        assert.equal(status,true);
     });
 
     it('reactivates the auction after suspension by the manager', async() => {
@@ -85,7 +85,7 @@ describe ('Auctions',() => {
             from:accounts[0],
             gas:'3000000'
         });
-        const status2 = await auction.methods.suspensionStatus().call();
-        assert.equal(status2,true);
+        const status = await auction.methods.suspensionStatus().call();
+        assert.equal(status,true);
     });
 });
