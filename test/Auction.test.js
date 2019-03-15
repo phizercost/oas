@@ -21,7 +21,7 @@ beforeEach(async() => {
         .send({from: accounts[0], gas:'3000000'});
     
         //create an auction 
-        await factory.methods.createAuction('0','20190314','20190330',"Test Title", "Test Description").send({
+        await factory.methods.createAuction('0','1551398400','1554076799',"Test Title", "Test Description").send({
             from:accounts[0],//manager of the auction
             gas: '3000000'
         });
@@ -41,5 +41,51 @@ describe ('Auctions',() => {
     it('deploys a factory  and an auction', () => {
         assert.ok(factory.options.address);
         assert.ok(auction.options.address);
+    });
+
+    it('marks caller as the auction owner', async() => {
+        const manager = await auction.methods.manager().call();
+        assert.equal(accounts[0],manager);
+    });
+
+    it('Allows people to bid adds them to the group of bidders', async() => {
+        await auction.methods.bid().send({
+            value:'200',
+            from:accounts[1],
+            gas:'3000000'
+        });
+        const isBidder = await auction.methods.bids(accounts[1]).call();
+        assert(isBidder);
+    });
+
+    it('Has a minimum bid amount required', async() => {
+        try {
+            await auction.methods.bid().send({
+                value:'10',
+                from:accounts[2],
+                gas:'3000000'
+            });
+            assert(false);
+        } catch (error) {
+            assert(error);
+        }
+    });
+
+    it('suspends the auction by the manager', async() => {
+        await auction.methods.changeSuspensionStatus().send({
+            from:accounts[0],
+            gas:'3000000'
+        });
+        const status1 = await auction.methods.suspensionStatus().call();
+        assert.equal(status1,true);
+    });
+
+    it('reactivates the auction after suspension by the manager', async() => {
+        await auction.methods.changeSuspensionStatus().send({
+            from:accounts[0],
+            gas:'3000000'
+        });
+        const status2 = await auction.methods.suspensionStatus().call();
+        assert.equal(status2,true);
     });
 });
