@@ -7,7 +7,7 @@ const compiledFactory  = require('./build/AuctionFactory.json')
 
 const provider = new HDWalletProvider(
     'wheat tomorrow suggest current dash tube crater evil town prosper practice sample',
-    'https://rinkeby.infura.io/v3/f912a150019841149bed55d1b21acf6f'
+    'https://rinkeby.infura.io/v3/ec92d8df913548909e7f380c89bd5cf3'
 );
 
 const web3 = new Web3(provider);
@@ -20,9 +20,10 @@ const deploy = async () => {
 
     const result = await new web3.eth.Contract(JSON.parse(compiledFactory.interface))
         .deploy({data:'0x' + compiledFactory.bytecode})
-        .send({from: accounts[0], gas: '1000000'});
+        .send({from: accounts[0], gas: '3000000'});
     console.log('Contract deployed to ',result.options.address);
 ;}
 
 deploy();
 
+//0xC4e9ac714931Ee555EaD93dE617bDdd492c041e1
