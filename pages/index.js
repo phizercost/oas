@@ -2,6 +2,8 @@ import factory from "../ethereum/factory";
 import React, { Component } from "react";
 import { Card } from "semantic-ui-react";
 import { Button } from "semantic-ui-react";
+import Layout from "../components/Layout";
+import { Link } from "../routes";
 
 class AuctionIndex extends Component {
   static async getInitialProps() {
@@ -12,7 +14,7 @@ class AuctionIndex extends Component {
     const items = this.props.auctions.map(address => {
       return {
         header: address,
-        description: <a>View Auction</a>,
+        description: (<Link route={`/auctions/${address}`}><a>View Auction</a></Link>),
         fluid: true
       };
     });
@@ -21,18 +23,18 @@ class AuctionIndex extends Component {
   }
   render() {
     return (
-      <div>
-        <link
-          rel="stylesheet"
-          href="//cdn.jsdelivr.net/npm/semantic-ui@2.4.1/dist/semantic.min.css"
-        />
-        {this.renderAuctions()}
-        <Button
-          content="Create Auction"
-          icon="add circle"
-          secondary //Blue, Secondary is black
-        />
-      </div>
+      <Layout>
+        <div>
+		  <h3>Open Auctions</h3>
+          {this.renderAuctions()}
+          <Button
+		  	floated="right"
+            content="Create Auction"
+            icon="add circle"
+            secondary //Primary is blue, Secondary is black
+          />
+        </div>
+      </Layout>
     );
   }
 }

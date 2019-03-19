@@ -29,7 +29,7 @@ contract Auction {
    // Bid[] public bids;
     mapping(address => uint256) public bids;
     uint public bidsCount;
-    uint256 private bidAmount;
+    uint256 public bidAmount;
     uint public biddersCount;
     bool public suspensionStatus;
     bool public cancelationStatus;
@@ -171,13 +171,22 @@ contract Auction {
     	
     }
     
-    function getTotalAmountBid() public restricted view returns (uint256) {
+    function getTotalAmountBid() public view returns (uint256) {
         return bidAmount;
     	
     }
     
     function getMyBalance() public view returns (uint256) {
         return msg.sender.balance;
+    	
+    }
+    function getAuctionTitle() public view returns (string) {
+        return auctionTitle;
+    	
+    }
+
+    function getAuctionDescription() public view returns (string) {
+        return auctionDescription;
     	
     }
     
@@ -205,6 +214,21 @@ contract Auction {
             s[j + inStrb.length] = reversed[i - 1 - j];
         }
         str = string(s);
+    }
+
+
+    function getSummary() public view returns (
+      uint256, uint256, uint256, uint, uint256, bool, address
+      ) {
+        return (
+          startDate,
+          endDate,
+          getHighestBid(),
+          getTotalBidders(),
+          getTotalAmountBid(),
+          completionStatus,
+          manager
+        );
     }
     
 }

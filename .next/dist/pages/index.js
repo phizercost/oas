@@ -42,6 +42,12 @@ var _react2 = _interopRequireDefault(_react);
 
 var _semanticUiReact = require("semantic-ui-react");
 
+var _Layout = require("../components/Layout");
+
+var _Layout2 = _interopRequireDefault(_Layout);
+
+var _routes = require("../routes");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var _jsxFileName = "/Users/cost/Google Drive/Cost Pro/Perso/Research/oas/pages/index.js?entry";
@@ -62,46 +68,54 @@ var AuctionIndex = function (_Component) {
       var items = this.props.auctions.map(function (address) {
         return {
           header: address,
-          description: _react2.default.createElement("a", {
+          description: _react2.default.createElement(_routes.Link, { route: "/auctions/" + address, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 17
+            }
+          }, _react2.default.createElement("a", {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 15
+              lineNumber: 17
             }
-          }, "View Auction"),
+          }, "View Auction")),
           fluid: true
         };
       });
 
       return _react2.default.createElement(_semanticUiReact.Card.Group, { items: items, __source: {
           fileName: _jsxFileName,
-          lineNumber: 20
+          lineNumber: 22
         }
       });
     }
   }, {
     key: "render",
     value: function render() {
-      return _react2.default.createElement("div", {
+      return _react2.default.createElement(_Layout2.default, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 24
+          lineNumber: 26
         }
-      }, _react2.default.createElement("link", {
-        rel: "stylesheet",
-        href: "//cdn.jsdelivr.net/npm/semantic-ui@2.4.1/dist/semantic.min.css",
+      }, _react2.default.createElement("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 25
+          lineNumber: 27
         }
-      }), this.renderAuctions(), _react2.default.createElement(_semanticUiReact.Button, {
+      }, _react2.default.createElement("h3", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 28
+        }
+      }, "Open Auctions"), this.renderAuctions(), _react2.default.createElement(_semanticUiReact.Button, {
+        floated: "right",
         content: "Create Auction",
         icon: "add circle",
-        secondary: true //Blue, Secondary is black
+        secondary: true //Primary is blue, Secondary is black
         , __source: {
           fileName: _jsxFileName,
           lineNumber: 30
         }
-      }));
+      })));
     }
   }], [{
     key: "getInitialProps",
@@ -139,4 +153,4 @@ var AuctionIndex = function (_Component) {
 }(_react.Component);
 
 exports.default = AuctionIndex;
-//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInBhZ2VzL2luZGV4LmpzIl0sIm5hbWVzIjpbImZhY3RvcnkiLCJSZWFjdCIsIkNvbXBvbmVudCIsIkNhcmQiLCJCdXR0b24iLCJBdWN0aW9uSW5kZXgiLCJpdGVtcyIsInByb3BzIiwiYXVjdGlvbnMiLCJtYXAiLCJoZWFkZXIiLCJhZGRyZXNzIiwiZGVzY3JpcHRpb24iLCJmbHVpZCIsInJlbmRlckF1Y3Rpb25zIiwibWV0aG9kcyIsImdldERlcGxveWVkQXVjdGlvbnMiLCJjYWxsIl0sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O0FBQUEsQUFBTyxBQUFhOzs7O0FBQ3BCLEFBQU8sQUFBUzs7OztBQUNoQixBQUFTLEFBQ1QsQUFBUzs7Ozs7OztJLEFBRUg7Ozs7Ozs7Ozs7O3FDQUthLEFBQ2Y7VUFBTSxhQUFRLEFBQUssTUFBTCxBQUFXLFNBQVgsQUFBb0IsSUFBSSxtQkFBVyxBQUMvQzs7a0JBQU8sQUFDRyxBQUNSO3VDQUFhLGNBQUE7O3dCQUFBOzBCQUFBO0FBQUE7QUFBQSxXQUFBLEVBRlIsQUFFUSxBQUNiO2lCQUhGLEFBQU8sQUFHRSxBQUVWO0FBTFEsQUFDTDtBQUZKLEFBQWMsQUFRZCxPQVJjOzsyQ0FRUCxBQUFDLHNCQUFELEFBQU0sU0FBTSxPQUFaLEFBQW1CO29CQUFuQjtzQkFBUCxBQUFPLEFBQ1I7QUFEUTtPQUFBOzs7OzZCQUVBLEFBQ1A7NkJBQ0UsY0FBQTs7b0JBQUE7c0JBQUEsQUFDRTtBQURGO0FBQUEsT0FBQTthQUNFLEFBQ00sQUFDSjtjQUZGLEFBRU87O29CQUZQO3NCQURGLEFBQ0UsQUFJQztBQUpEO0FBQ0UsZUFGSixBQUtHLEFBQUssQUFDTixrQ0FBQSxBQUFDO2lCQUFELEFBQ1UsQUFDUjtjQUZGLEFBRU8sQUFDTDttQkFIRixLQUFBLEFBR1k7QUFGVjtvQkFERjtzQkFQSixBQUNFLEFBTUUsQUFPTDtBQVBLOzs7Ozs7Ozs7Ozs7O3VCQXRCbUIsa0JBQUEsQUFBUSxRQUFSLEFBQWdCLHNCLEFBQWhCLEFBQXNDOzttQkFBdkQ7QTtpREFDQyxFQUFFLFUsQUFBRjs7Ozs7Ozs7Ozs7Ozs7Ozs7OztBLEFBSGdCLEFBa0MzQjs7a0JBQUEsQUFBZSIsImZpbGUiOiJpbmRleC5qcz9lbnRyeSIsInNvdXJjZVJvb3QiOiIvVXNlcnMvY29zdC9Hb29nbGUgRHJpdmUvQ29zdCBQcm8vUGVyc28vUmVzZWFyY2gvb2FzIn0=
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInBhZ2VzL2luZGV4LmpzIl0sIm5hbWVzIjpbImZhY3RvcnkiLCJSZWFjdCIsIkNvbXBvbmVudCIsIkNhcmQiLCJCdXR0b24iLCJMYXlvdXQiLCJMaW5rIiwiQXVjdGlvbkluZGV4IiwiaXRlbXMiLCJwcm9wcyIsImF1Y3Rpb25zIiwibWFwIiwiaGVhZGVyIiwiYWRkcmVzcyIsImRlc2NyaXB0aW9uIiwiZmx1aWQiLCJyZW5kZXJBdWN0aW9ucyIsIm1ldGhvZHMiLCJnZXREZXBsb3llZEF1Y3Rpb25zIiwiY2FsbCJdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztBQUFBLEFBQU8sQUFBYTs7OztBQUNwQixBQUFPLEFBQVM7Ozs7QUFDaEIsQUFBUyxBQUNULEFBQVM7O0FBQ1QsQUFBTyxBQUFZOzs7O0FBQ25CLEFBQVMsQUFBWTs7Ozs7OztJLEFBRWY7Ozs7Ozs7Ozs7O3FDQUthLEFBQ2Y7VUFBTSxhQUFRLEFBQUssTUFBTCxBQUFXLFNBQVgsQUFBb0IsSUFBSSxtQkFBVyxBQUMvQzs7a0JBQU8sQUFDRyxBQUNSO3VDQUFjLEFBQUMsOEJBQUssc0JBQU4sQUFBMEI7d0JBQTFCOzBCQUFBLEFBQXFDO0FBQXJDO1dBQUEsa0JBQXFDLGNBQUE7O3dCQUFBOzBCQUFBO0FBQUE7QUFBQSxhQUY5QyxBQUVTLEFBQXFDLEFBQ25EO2lCQUhGLEFBQU8sQUFHRSxBQUVWO0FBTFEsQUFDTDtBQUZKLEFBQWMsQUFRZCxPQVJjOzsyQ0FRUCxBQUFDLHNCQUFELEFBQU0sU0FBTSxPQUFaLEFBQW1CO29CQUFuQjtzQkFBUCxBQUFPLEFBQ1I7QUFEUTtPQUFBOzs7OzZCQUVBLEFBQ1A7NkJBQ0UsQUFBQzs7b0JBQUQ7c0JBQUEsQUFDRTtBQURGO0FBQUEsT0FBQSxrQkFDRSxjQUFBOztvQkFBQTtzQkFBQSxBQUNKO0FBREk7QUFBQSx5QkFDSixjQUFBOztvQkFBQTtzQkFBQTtBQUFBO0FBQUEsU0FESSxBQUNKLEFBQ08sdUJBRkgsQUFFRyxBQUFLLEFBQ04sa0NBQUEsQUFBQztpQkFBRCxBQUNHLEFBQ0Q7aUJBRkYsQUFFVSxBQUNSO2NBSEYsQUFHTyxBQUNMO21CQUpGLEtBQUEsQUFJWTtBQUhqQjtvQkFESztzQkFMTixBQUNFLEFBQ0UsQUFHRSxBQVNQO0FBVE87Ozs7Ozs7Ozs7Ozs7dUJBcEJpQixrQkFBQSxBQUFRLFFBQVIsQUFBZ0Isc0IsQUFBaEIsQUFBc0M7O21CQUF2RDtBO2lEQUNDLEVBQUUsVSxBQUFGOzs7Ozs7Ozs7Ozs7Ozs7Ozs7O0FBK0JYLEEsQUFsQzJCOztrQkFrQzNCLEFBQWUiLCJmaWxlIjoiaW5kZXguanM/ZW50cnkiLCJzb3VyY2VSb290IjoiL1VzZXJzL2Nvc3QvR29vZ2xlIERyaXZlL0Nvc3QgUHJvL1BlcnNvL1Jlc2VhcmNoL29hcyJ9
