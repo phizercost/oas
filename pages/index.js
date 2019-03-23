@@ -27,12 +27,6 @@ class AuctionIndex extends Component {
         <div>
 		  <h3>Open Auctions</h3>
           {this.renderAuctions()}
-          <Button
-		  	floated="right"
-            content="Create Auction"
-            icon="add circle"
-            secondary //Primary is blue, Secondary is black
-          />
         </div>
       </Layout>
     );
