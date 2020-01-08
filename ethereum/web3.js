@@ -6,7 +6,11 @@ let web3;
 if(typeof window !== 'undefined' && typeof window.web3 !== 'undefined') {
 //we are in the browser and metamask is running
 //We can hijack metamask 
-web3 = new Web3(window.web3.currentProvider);
+
+//This no longer works this way on January 8th 2020
+//web3 = new Web3(window.web3.currentProvider);
+web3 = new Web3(window.ethereum);
+window.ethereum.enable();
 } else {
 // We are on the server *OR* the user is not running metamask. We create our own provider
 //No problem of sharing the infura key
